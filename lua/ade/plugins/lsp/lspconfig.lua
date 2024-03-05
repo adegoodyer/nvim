@@ -16,6 +16,14 @@ end
 --   return
 -- end
 
+-- Change the Diagnostic symbols in the sign column (gutter)
+-- (not in youtube nvim video)
+-- local signs = { Error = " ", Warn = " ", Hint = "H", Info = " " }
+-- for type, icon in pairs(signs) do
+--   local hl = "DiagnosticSign" .. type
+--   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+-- end
+
 local keymap = vim.keymap -- for conciseness
 
 -- enable keybinds only for when lsp server available
@@ -48,13 +56,71 @@ end
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
--- Change the Diagnostic symbols in the sign column (gutter)
--- (not in youtube nvim video)
--- local signs = { Error = " ", Warn = " ", Hint = "H", Info = " " }
--- for type, icon in pairs(signs) do
---   local hl = "DiagnosticSign" .. type
---   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
--- end
+------------------------------------------------------------------------------------
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+------------------------------------------------------------------------------------
+
+-- configure ansible server
+lspconfig["ansiblels"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+	settings = {
+		ansible = {
+			ansible = {
+				path = "ansible"
+			},
+			executionEnvironment = {
+				enabled = false
+			},
+			python = {
+				interpreterPath = "python"
+			},
+			validation = {
+				enabled = true,
+				lint = {
+					enabled = true,
+					path = "ansible-lint"
+				}
+			}
+		}
+	},
+})
+
+-- configure bashls server
+lspconfig["bashls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure css server
+lspconfig["cssls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure docker server
+lspconfig["dockerls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure docker_compose_language_service server
+lspconfig["docker_compose_language_service"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure css server
+lspconfig["cssls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure gopls server
+lspconfig["gopls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
 
 -- configure html server
 lspconfig["html"].setup({
@@ -62,16 +128,14 @@ lspconfig["html"].setup({
   on_attach = on_attach,
 })
 
--- configure typescript server with plugin
--- typescript.setup({
---   server = {
---     capabilities = capabilities,
---     on_attach = on_attach,
---   },
--- })
+-- configure jsonls server
+lspconfig["jsonls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
 
--- configure css server
-lspconfig["cssls"].setup({
+-- configure jqls server
+lspconfig["jqls"].setup({
   capabilities = capabilities,
   on_attach = on_attach,
 })
@@ -96,3 +160,54 @@ lspconfig["lua_ls"].setup({
     },
   },
 })
+
+-- configure marksman server
+lspconfig["marksman"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure quick_lint_js server
+lspconfig["quick_lint_js"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure sqlls server
+lspconfig["sqlls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure terraformls server
+lspconfig["terraformls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure tflintserver
+lspconfig["tflint"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure typescript server with plugin
+-- typescript.setup({
+--   server = {
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--   },
+-- })
+
+-- configure jvuels server
+lspconfig["vuels"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+-- configure yamlls server
+lspconfig["yamlls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+

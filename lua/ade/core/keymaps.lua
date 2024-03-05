@@ -8,7 +8,7 @@ local keymap = vim.keymap
 
 -- general
 keymap.set("i", "jk", "<ESC>")												-- in insert mode, use jk to escape
-keymap.set("n", "<leader>cs", ":nohl<CR>")						-- in normal mode, clear search highlights
+keymap.set("n", "<leader>ch", ":nohl<CR>")						-- in normal mode, clear search highlights
 keymap.set("n", "x", "_x")														-- delete characted but don't add to register
 
 -- window management
