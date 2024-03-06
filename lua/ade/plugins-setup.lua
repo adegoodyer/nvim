@@ -46,7 +46,15 @@ return packer.startup(function(use)
   -- file explorer
   use("nvim-tree/nvim-tree.lua")
 
-	-- vs-code like icons
+	-- terminal
+	use({"akinsho/toggleterm.nvim",
+		tag = '*',
+		config = function()
+  		require("toggleterm").setup()
+		end
+	})
+
+		-- vs-code like icons
   use("nvim-tree/nvim-web-devicons")
 
 	-- statusline
@@ -88,8 +96,7 @@ return packer.startup(function(use)
   use("onsails/lspkind.nvim") 								-- vs-code like icons for autocompletion
 
 	-- treesitter configuration
-  use({
-    "nvim-treesitter/nvim-treesitter",
+  use({"nvim-treesitter/nvim-treesitter",
     run = function()
       local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
       ts_update()
@@ -102,8 +109,9 @@ return packer.startup(function(use)
 
 	-- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
-	
+
 	if packer_bootstrap then
     require("packer").sync()
   end
+
 end)
