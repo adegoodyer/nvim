@@ -4,6 +4,12 @@ local keymap = vim.keymap
 
 --top-tip: use cat command to find out keys
 
+-- <C->		ctrl
+-- <BS>  	back space
+-- <CR>  	enter
+-- <Tab>	tab
+
+
 -- keymap.set("mode", "keys", "action")
 
 -- general
@@ -35,6 +41,7 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") 		-- list availabl
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
 -- terminal
+keymap.set("n", "<leader>t", ":ToggleTerm size=100 direction=vertical<CR>")
+-- keymap.set("n", "<leader>t", ":ToggleTerm size=30 direction=horizontal<CR>")
 local opts = {buffer = 0}
-keymap.set("n", "<leader>t", ":ToggleTerm size=15 direction=horizontal<CR>")
-keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+keymap.set("t", "<ESC>", "<C-\\><C-n>", opts) -- not working currently
