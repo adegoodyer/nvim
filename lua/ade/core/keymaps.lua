@@ -45,3 +45,6 @@ keymap.set("n", "<leader>t", ":ToggleTerm size=100 direction=vertical<CR>")
 -- keymap.set("n", "<leader>t", ":ToggleTerm size=30 direction=horizontal<CR>")
 local opts = {buffer = 0}
 keymap.set("t", "<ESC>", "<C-\\><C-n>", opts) -- not working currently
+
+-- gitblame
+keymap.set("n", "<leader>gb", ":GitBlameToggle<CR>")
