@@ -43,9 +43,6 @@ return packer.startup(function(use)
 	-- commenting with gc
   use("numToStr/Comment.nvim")
 
-  -- file explorer
-  use("nvim-tree/nvim-tree.lua")
-
 	-- terminal
 	use({"akinsho/toggleterm.nvim",
 		tag = '*',
@@ -54,7 +51,8 @@ return packer.startup(function(use)
 		end
 	})
 
-		-- vs-code like icons
+  -- file explorer
+  use("nvim-tree/nvim-tree.lua")
   use("nvim-tree/nvim-web-devicons")
 
 	-- statusline

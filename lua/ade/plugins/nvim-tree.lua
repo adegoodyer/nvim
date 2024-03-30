@@ -24,6 +24,12 @@ nvimtree.setup({
 	view = {
     width = 45,
   },
+	filters = {
+    dotfiles = false,
+  },
+	git = {
+		ignore = false,
+	},
 })
 
 -- open nvim-tree on setup
